@@ -19,7 +19,13 @@ class TrimetIframe < Sinatra::Base
   helpers do
     def time(raw)
       return "" unless raw
-      DateTime.parse(raw).strftime('%l:%M%P %m/%d')
+      DateTime.parse(raw).strftime('%l:%M%P')
+    end
+
+    def relative(raw)
+      return "" unless raw
+      min = ((Time.parse(raw) - Time.now()) / 60).to_i
+      "#{min} min"
     end
   end
   

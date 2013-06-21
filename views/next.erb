@@ -10,7 +10,7 @@
     <% @arrivals.each do |arrival| %>
       <tr>
         <td><%= arrival['shortSign'] %></td>
-        <td><%= time(arrival['estimated'] || arrival['scheduled']) %></td>
+        <td><%= relative(arrival['estimated'] || arrival['scheduled']) %> @ <%= time(arrival['estimated'] || arrival['scheduled']) %></td>
       </tr>
     <% end %>
   </tbody>
