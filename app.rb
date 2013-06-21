@@ -5,6 +5,8 @@ require 'time'
 
 class TrimetIframe < Sinatra::Base
 
+  set :protection, :except => :frame_options
+
   def call_trimet(endpoint, params={})
     query = params.merge!(
       appID: ENV['TRIMET_APP_ID'],
